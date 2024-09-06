@@ -34,8 +34,8 @@ class AuthController extends Controller
         // Login user
         Auth::login($user);
         $request->session()->regenerate();
-        // Redirect to home page
-        return redirect()->route('home');
+        // Redirect to route admin.dashboard
+        return redirect()->route('admin.dashboard');
 
     }
 
