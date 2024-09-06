@@ -1,0 +1,31 @@
+services:
+    mysql:
+        image: mysql:8.0
+        container_name: mysql
+        restart: unless-stopped
+        environment:
+            MYSQL_ROOT_PASSWORD: root_password
+            MYSQL_DATABASE: dailong_holding
+            MYSQL_USER: admin
+            MYSQL_PASSWORD: XprdRD4L623qSuw8
+        ports:
+            - "3306:3306"
+        volumes:
+            - mysql_data_dailong_holding:/var/lib/mysql
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        container_name: phpmyadmin_dailong_holding
+        restart: unless-stopped
+        ports:
+            - "8080:80"
+        environment:
+            PMA_HOST: mysql
+            PMA_PORT: 3306
+            PMA_USER: admin
+            PMA_PASSWORD: XprdRD4L623qSuw8
+        depends_on:
+            - mysql
+
+volumes:
+    mysql_data_dailong_holding:
