@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,4 +21,13 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('/login', 'postLogin')->middleware('guest');
     // Route logout
     Route::get('/logout', 'logout')->name('logout');
+});
+
+// Create 1 group for the admin routes, prefix it with 'admin', and name it 'admin.'
+Route::prefix('admin')->middleware('auth')->name('admin.')->group(function () {
+    // Create groupt route use the controller DashboardController, prefix 'dashboard', name 'dashboard.'
+    Route::controller(DashboardController::class)->prefix('dashboard')->name('dashboard.')->group(function () {
+        // Route get index page
+        Route::get('/', 'index')->name('index');
+    });
 });
