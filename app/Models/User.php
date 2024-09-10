@@ -46,4 +46,15 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    protected static function booted(): void
+    {
+        static::created(function (User $user) {
+            $company_id = getCompanyIdByDomain();
+            if($company_id){
+                $user->company_id = $company_id;
+                $user->save();
+            } 
+        });
+    }
 }

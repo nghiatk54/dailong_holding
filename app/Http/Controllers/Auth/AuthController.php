@@ -25,7 +25,7 @@ class AuthController extends Controller
         $password = $request->input('password');
 
         // Get user from database by email or phone number
-        $user = User::where('email', $emailPhoneNumber)->orWhere('phone', $emailPhoneNumber)->first();
+        $user = User::where(function ($query) use ($emailPhoneNumber) { $query->where('email', $emailPhoneNumber)->orWhere('phone', $emailPhoneNumber); })->where('company_id', getCompanyIdByDomain())->first();
         // Check if user is not exist or password is not correct
         if (!$user || !Hash::check($password, $user->password)) {
             // Return back with error message
