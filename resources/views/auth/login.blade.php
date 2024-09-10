@@ -67,10 +67,13 @@
                     <div class="bg-white rounded p-4 mb-2">
                         {{-- Logo image --}}
                         <div class="text-center">
-                            <img src="{{ asset('assets/images/logo/final.png') }}" alt="Logo" class="img-fluid" width="160">
+                            <img src="{{ asset('assets/images/logo/final.png') }}" alt="Logo" class="img-fluid" width="100">
                         </div>
                         {{-- Title "Đăng Nhập Hệ Thống" --}}
-                        <h2 class="text-center mb-4 fs-3 fw-bold">{{ __('Đăng Nhập Hệ Thống') }}</h2>
+                        <h2 class="text-center mb-4 fs-3 fw-bold">{{ __('HỆ SINH THÁI ĐẠI LONG') }}</h2>
+                        <div class="alert alert-success text-center lh-base">
+                            {{ __('Xin vui lòng đăng nhập vào hệ thống') }}
+                        </div>
                         {{-- Notification --}}
                         {{-- If have any error --}}
                         @if ($errors->any())
