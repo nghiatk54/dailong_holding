@@ -6,7 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {{-- Add icon favicon --}}
-    <link rel="icon" href="{{ asset('assets/images/logo-dai-long.png') }}" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/images/favicon_io/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/images/favicon_io/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon_io/favicon-16x16.png') }}">
     {{-- Add Title --}}
     <title>Đăng nhập hệ thống</title>
     {{-- Add link CSS bootstrap5 from public/library/bootstrap/dist use asset --}}
@@ -25,10 +27,32 @@
     <style>
         /* Background container form */
         .custom-container-form {
-            background-image: url('{{ asset('assets/images/background/background-login.jpg') }}');
+            background-image: url('{{ asset('assets/images/background/bg_login2.jpg') }}');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            position: relative;
+            z-index: 1;
+        }
+        .custom-container-form::before {
+            content:"";
+            display:block;
+            position:absolute;
+            z-index:-1;
+            width:100%;
+            height:100%;
+            top:0;
+            left:0;
+            background:linear-gradient(rgba(0,30,61,.6) 0,rgba(0,0,0,.1) 41.42%,rgba(0,0,0,.3) 100%)
+        }
+        .container-login{
+            width: 100%;
+            max-width: 400px;
+            margin: auto;
+        }
+        .login-copy-right-container{
+            font-weight: bold;
+            color: #fff;
         }
     </style>
 </head>
@@ -38,56 +62,57 @@
     <div class="container-fluid vh-100 custom-container-form">
         <div class="row justify-content-center align-items-center h-100">
             <div class="col-12 col-md-8 col-lg-6">
-                {{-- Section content --}}
-                <div class="bg-white rounded p-4 mb-4">
-                    {{-- Logo image --}}
-                    <div class="text-center mb-4">
-                        <img src="{{ asset('assets/images/logo/logo-dai-long.png') }}" alt="Logo" class="img-fluid"
-                            width="160">
+                <div class="container-login">
+                    {{-- Section content --}}
+                    <div class="bg-white rounded p-4 mb-2">
+                        {{-- Logo image --}}
+                        <div class="text-center">
+                            <img src="{{ asset('assets/images/logo/final.png') }}" alt="Logo" class="img-fluid" width="160">
+                        </div>
+                        {{-- Title "Đăng Nhập Hệ Thống" --}}
+                        <h2 class="text-center mb-4 fs-3 fw-bold">{{ __('Đăng Nhập Hệ Thống') }}</h2>
+                        {{-- Notification --}}
+                        {{-- If have any error --}}
+                        @if ($errors->any())
+                            {{-- Alert first error --}}
+                            <div class="alert alert-danger text-center lh-base">
+                                {{ $errors->first() }}
+                            </div>
+                        @endif
+                        {{-- If success --}}
+                        @if (session('success'))
+                            {{-- Alert success --}}
+                            <div class="alert alert-success text-center lh-base">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+                        {{-- Form login --}}
+                        <form method="POST" action="{{ route('login') }}" id="formLogin">
+                            @csrf
+                            {{-- Input Phone or Email --}}
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="emailPhoneNumber" name="emailPhoneNumber"
+                                    placeholder="" value='{{ old('emailPhoneNumber') }}' required autofocus>
+                                <label for="emailPhoneNumber"
+                                    class="form-label">{{ __('Nhập Số điện thoại hoặc Email') }}</label>
+                            </div>
+                            {{-- Input password --}}
+                            <div class="form-floating mb-3">
+                                <input type="password" class="form-control" id="password" name="password" placeholder=""
+                                    value='{{ old('password') }}' required>
+                                <label for="password" class="form-label">{{ __('Nhập mật khẩu') }}</label>
+                            </div>
+                            {{-- Button login --}}
+                            <button type="submit"
+                                class="btn btn-primary btn-lg w-100 fw-bold">{{ __('Đăng nhập') }}</button>
+                        </form>
                     </div>
-                    {{-- Title "Đăng Nhập Hệ Thống" --}}
-                    <h2 class="text-center mb-4 fs-3 fw-bold">{{ __('Đăng Nhập Hệ Thống') }}</h2>
-                    {{-- Notification --}}
-                    {{-- If have any error --}}
-                    @if ($errors->any())
-                        {{-- Alert first error --}}
-                        <div class="alert alert-danger text-center lh-base">
-                            {{ $errors->first() }}
-                        </div>
-                    @endif
-                    {{-- If success --}}
-                    @if (session('success'))
-                        {{-- Alert success --}}
-                        <div class="alert alert-success text-center lh-base">
-                            {{ session('success') }}
-                        </div>
-                    @endif
-                    {{-- Form login --}}
-                    <form method="POST" action="{{ route('login') }}" id="formLogin">
-                        @csrf
-                        {{-- Input Phone or Email --}}
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="emailPhoneNumber" name="emailPhoneNumber"
-                                placeholder="" value='{{ old('emailPhoneNumber') }}' required autofocus>
-                            <label for="emailPhoneNumber"
-                                class="form-label">{{ __('Nhập Số điện thoại hoặc Email') }}</label>
-                        </div>
-                        {{-- Input password --}}
-                        <div class="form-floating mb-3">
-                            <input type="password" class="form-control" id="password" name="password" placeholder=""
-                                value='{{ old('password') }}' required>
-                            <label for="password" class="form-label">{{ __('Nhập mật khẩu') }}</label>
-                        </div>
-                        {{-- Button login --}}
-                        <button type="submit"
-                            class="btn btn-primary btn-lg w-100 fw-bold">{{ __('Đăng nhập') }}</button>
-                    </form>
-                </div>
-                {{-- Thêm phần copyright --}}
-                <div class="text-center">
-                    <p class="text-dark shadow-sm fs-6 lh-base">
-                        {{ __('Copyright © 2024 - Đại Long JSC version 1.0.0') }}
-                    </p>
+                    {{-- Thêm phần copyright --}}
+                    <div class="text-center">
+                        <p class="login-copy-right-container lh-base">
+                            {{ __('Copyright © 2024 - Đại Long JSC version 1.0.0') }}
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
