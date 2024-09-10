@@ -97,7 +97,7 @@
                                 <input type="text" class="form-control" id="emailPhoneNumber" name="emailPhoneNumber"
                                     placeholder="" value='{{ old('emailPhoneNumber') }}' required autofocus>
                                 <label for="emailPhoneNumber"
-                                    class="form-label">{{ __('Nhập Số điện thoại hoặc Email') }}</label>
+                                    class="form-label">{{ __('Nhập số điện thoại hoặc email') }}</label>
                             </div>
                             {{-- Input password --}}
                             <div class="form-floating mb-3">
