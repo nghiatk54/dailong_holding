@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CompanyController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Support\Facades\Route;
@@ -25,8 +26,13 @@ Route::controller(AuthController::class)->group(function () {
 
 // Create 1 group for the admin routes, prefix it with 'admin', and name it 'admin.'
 Route::prefix('admin')->middleware('auth')->name('admin.')->group(function () {
-    // Create groupt route use the controller DashboardController, prefix 'dashboard', name 'dashboard.'
+    // Create group route use the controller DashboardController, prefix 'dashboard', name 'dashboard.'
     Route::controller(DashboardController::class)->prefix('dashboard')->name('dashboard.')->group(function () {
+        // Route get index page
+        Route::get('/', 'index')->name('index');
+    });
+    // Create group route use controller CompanyController, prefix 'company', name 'company.'
+    Route::controller(CompanyController::class)->prefix('company')->name('company.')->group(function () {
         // Route get index page
         Route::get('/', 'index')->name('index');
     });

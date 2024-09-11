@@ -6,139 +6,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {{-- Add icon favicon --}}
-    <link rel="icon" href="{{ asset('assets/images/logo-dai-long.png') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('assets/images/logo/dai-long.png') }}" type="image/x-icon">
     {{-- Add Title --}}
     <title>Quản trị hệ thống</title>
-    {{-- Add link CSS bootstrap5 from public/library/bootstrap/dist use asset --}}
-    <link rel="stylesheet" href="{{ asset('library/bootstrap/dist/css/bootstrap.min.css') }}">
-    {{-- Add link proper JS --}}
-    <script src="{{ asset('library/@popperjs/core/dist/umd/popper.min.js') }}"></script>
-    {{-- Add link bootstrap JS --}}
-    <script src="{{ asset('library/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    {{-- Add link CSS bootstrap5 from public/assets/library/bootstrap/dist use asset --}}
+    <link rel="stylesheet" href="{{ asset('assets/library/bootstrap/dist/css/bootstrap.min.css') }}">
     {{-- Add link reset.css --}}
-    <link rel="stylesheet" href="{{ asset('assets/dist/reset.css') }}">
-    {{-- Add link Font Roboto from public/library/roboto/index.css --}}
-    <link rel="stylesheet" href="{{ asset('library/@fontsource/roboto/index.css') }}">
-    {{-- Add link Font Awesome from public/library/@fortawesome/fontawesome-free/css/all.min.css --}}
-    <link rel="stylesheet" href="{{ asset('library/@fortawesome/fontawesome-free/css/all.min.css') }}">
-    {{-- Add link CSS index --}}
-    <link rel="stylesheet" href="{{ asset('assets/dist/index.css') }}">
-    {{-- Add CSS custom --}}
-    <style>
-        /* Background container */
-        .custom-container {
-            background-image: url('{{ asset('assets/images/background/background-login.jpg') }}');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
-        /* Input search */
-        .custom-input-search::placeholder {
-            color: #6c757d;
-        }
-
-        .custom-input-search {
-            min-width: 320px;
-        }
-
-        /* Fix dropdown */
-        .dropdown-setting-arrow::before,
-        .dropdown-information-arrow::before {
-            content: "";
-            position: absolute;
-            top: -6px;
-            right: 14px;
-            border-width: 0 8px 8px 8px;
-            border-style: solid;
-            border-color: transparent transparent #ffffff transparent;
-        }
-
-        .dropdown-information-arrow::before {
-            right: 8px;
-        }
-
-        .button-dropdown-company {
-            min-width: 280px;
-        }
-
-        /* Fix carousel */
-        .carouselSubapp {
-            height: 84vh;
-        }
-
-        .carousel-inner-custom {
-            padding: 68px 0;
-            width: 330px;
-        }
-
-        .carousel-inner-custom .carousel-item {
-            overflow-y: auto;
-        }
-
-        .carousel-inner-custom .col {
-            padding: 0;
-        }
-
-        .carousel-inner-custom .card {
-            width: 156px;
-            height: 130px;
-            margin: auto;
-            background-color: transparent;
-            cursor: pointer;
-        }
-
-        .carousel-inner-custom .card:hover {
-            background-color: rgba(52, 58, 64, 0.5);
-        }
-
-        .carouselSubapp .custom-control-button {
-            width: 64px;
-            height: 64px;
-            background-color: transparent;
-        }
-
-        .carouselSubapp .custom-control-button:hover {
-            background-color: rgba(52, 58, 64, 0.5);
-        }
-
-        .carouselSubapp .custom-control-button span {
-            width: 36px;
-            height: 36px;
-        }
-
-        /* Responsive width >= 768px */
-        @media (min-width: 768px) {
-            .carousel-inner-custom {
-                padding: 122px 0;
-                width: 650px;
-            }
-        }
-
-        /* Responsive width >= 992px */
-        @media (min-width: 992px) {
-            .carousel-inner-custom {
-                width: 826px;
-            }
-
-            .carousel-inner-custom .carousel-item {
-                overflow-y: hidden;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('assets/css/reset.css') }}">
+    {{-- Add link proper JS --}}
+    <script src="{{ asset('assets/library/@popperjs/core/dist/umd/popper.min.js') }}"></script>
+    {{-- Add link bootstrap JS --}}
+    <script src="{{ asset('assets/library/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    {{-- Add link Font Roboto from public/assets/library/roboto/index.css --}}
+    <link rel="stylesheet" href="{{ asset('assets/library/@fontsource/roboto/index.css') }}">
+    {{-- Add link Font Awesome from public/assets/library/@fortawesome/fontawesome-free/css/all.min.css --}}
+    <link rel="stylesheet" href="{{ asset('assets/library/@fortawesome/fontawesome-free/css/all.min.css') }}">
+    {{-- Add link CSS custom --}}
+    <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
+    {{-- Add CSS adminDashboard --}}
+    <link rel="stylesheet" href="{{ asset('assets/css/adminDashboard.css') }}">
 </head>
 
 <body>
     {{-- Container --}}
-    <div class="custom-container vh-100">
+    <div class="custom-container"
+        style="background-image: url('{{ asset('assets/images/background/admin-dashboard.jpg') }}')">
         {{-- Navbar --}}
         <nav class="navbar navbar-light bg-dark">
             <div class="container-fluid">
                 {{-- Brand --}}
                 <a class="navbar-brand d-flex justify-content-center align-items-center" href="#">
-                    <img src="{{ asset('assets/images/logo/logo-dai-long.png') }}" alt="Logo" class="img-fluid"
-                        width="100px">
-                    <h1 class='navbar-text text-white ms-2 ms-md-4'>ĐẠI LONG</h1>
+                    <img src="{{ asset('assets/images/logo/dai-long.png') }}" alt="Logo" class="img-fluid"
+                        width="48px">
+                    <h1 class='navbar-text text-white ms-2 fw-900'>ĐẠI LONG</h1>
                 </a>
                 {{-- Navbar For mobile --}}
                 {{-- Button dropdown --}}
@@ -153,11 +53,11 @@
                             <div class="nav-link p-3 position-relative" href="#">
                                 {{-- Input --}}
                                 <input type="text" id="searchSubAppMobile" name="searchSubAppMobile"
-                                    class="ps-5 custom-placeholder text-white bg-dark bg-opacity-50 form-control rounded-pill border border-white border-opacity-50 custom-input-search"
+                                    class="ps-5 custom-placeholder text-white bg-dark bg-opacity-50 form-control rounded-pill border border-white custom-input-search"
                                     placeholder="Tìm kiếm ứng dụng" aria-label="searchSubapp"
                                     aria-describedby="searchSubapp">
                                 {{-- Icon --}}
-                                <span class="position-absolute top-50 translate-middle-y ms-3 text-secondary"><i
+                                <span class="position-absolute top-50 translate-middle-y ms-3 text-white"><i
                                         class="fas fa-search"></i><span>
                             </div>
                         </li>
@@ -223,11 +123,11 @@
                         <div class="position-relative">
                             {{-- Input --}}
                             <input type="text" id="searchSubApp"
-                                class="ps-5 custom-placeholder text-white bg-dark bg-opacity-50 form-control rounded-pill border border-white border-opacity-50 custom-input-search"
+                                class="ps-5 text-white bg-dark bg-opacity-50 form-control rounded-pill border border-white custom-input-search"
                                 placeholder="Tìm kiếm ứng dụng" aria-label="searchSubapp"
                                 aria-describedby="searchSubapp">
                             {{-- Icon --}}
-                            <span class="position-absolute top-50 translate-middle-y ms-3 text-secondary"><i
+                            <span class="position-absolute top-50 translate-middle-y ms-3 text-white"><i
                                     class="fas fa-search"></i><span>
                         </div>
                     </li>
@@ -339,14 +239,48 @@
             </div>
         </nav>
         {{-- Section content --}}
+        {{-- Select module --}}
+        <div class='container-module mx-auto'>
+            <div class="container-fluid">
+                <div class="row g-2 mt-2 justify-content-center">
+                    {{-- Select all --}}
+                    <button class="selection fw-900 px-3 me-2  btn btn-sm btn-outline-primary rounded-pill active">Tất
+                        cả</button>
+                    {{-- Select employee --}}
+                    <button class="selection fw-900 px-3 me-2 btn btn-sm btn-outline-primary rounded-pill">Nhân
+                        sự</button>
+                    {{-- Select business --}}
+                    <button class="selection fw-900 px-3 me-2 btn btn-sm btn-outline-primary rounded-pill">Kinh
+                        doanh</button>
+                    {{-- Select marketing --}}
+                    <button
+                        class="selection fw-900 px-3 me-2 btn btn-sm btn-outline-primary rounded-pill">Marketing</button>
+                    {{-- Select produce --}}
+                    <button class="selection fw-900 px-3 me-2 btn btn-sm btn-outline-primary rounded-pill">Sản
+                        xuất</button>
+                    {{-- Select Finance - Accounting --}}
+                    <button class="selection fw-900 px-3 btn btn-sm btn-outline-primary rounded-pill">Tài chính - Kế
+                        toán</button>
+                </div>
+            </div>
+        </div>
         {{-- SubApp list --}}
         <div id="carouselSubapp" class="carousel slide mb-2 carouselSubapp">
-            {{-- Indicators --}}
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselSubapp" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselSubapp" data-bs-slide-to="1" class="active"
-                    aria-current="true" aria-label="Slide 2"></button>
+            {{-- Indicators and footer --}}
+            <div class="position-fixed bottom-0 vw-100 mb-3">
+                <div class="carousel-indicators position-relative">
+                    <button type="button" data-bs-target="#carouselSubapp" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselSubapp" data-bs-slide-to="1" class=""
+                        aria-current="true" aria-label="Slide 2"></button>
+                </div>
+                {{-- Section footer --}}
+                <footer>
+                    {{-- Copyright --}}
+                    <p class="text-white text-center fs-6 lh-base fw-900">
+                        {{ __('Copyright © 2024 - Đại Long JSC version 1.0.0') }}
+                    </p>
+                </footer>
             </div>
             {{-- Carousel inner --}}
             <div class="carousel-inner carousel-inner-custom m-auto h-100">
@@ -354,13 +288,20 @@
                 <div class="carousel-item container-fluid h-100 active">
                     <div class="row row-cols-2 row-cols-md-4 gy-2 gy-md-4 row-cols-lg-5">
                         <div class="col">
-                            <a class="card text-center border-0 py-3">
+                            <a class="card text-center border-0 py-3 text-decoration-none">
                                 <img src="{{ asset('assets/images/subapp/organization.svg') }}"
                                     class="card-img-top mb-2" width="80px" height="80px" alt="Nhân sự">
                                 <h5 class="text-white">Nhân sự</h5>
                             </a>
                         </div>
-
+                        <div class="col">
+                            <a class="card text-center border-0 py-3 text-decoration-none"
+                                href="{{ route('admin.company.index') }}">
+                                <img src="{{ asset('assets/images/subapp/company.svg') }}" class="card-img-top mb-2"
+                                    width="80px" height="80px" alt="Nhân sự">
+                                <h5 class="text-white">Công ty</h5>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 {{-- Item slide --}}
@@ -386,31 +327,12 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-        {{-- Section footer --}}
-        <footer>
-            {{-- Copyright --}}
-            <div class="text-center">
-                <p class="text-white fs-6 lh-base">
-                    {{ __('Copyright © 2024 - Đại Long JSC version 1.0.0') }}
-                </p>
-            </div>
-        </footer>
     </div>
 
-    {{-- Add Link jquery from public/library/jquery/dist/jquery.min.js --}}
-    <script src="{{ asset('library/jquery/dist/jquery.min.js') }}"></script>
-    {{-- Add Link jquery validate from public/library/jquery-validation/dist/jquery.validate.min.js --}}
-    <script src="{{ asset('library/jquery-validation/dist/jquery.validate.min.js') }}"></script>
-    {{-- Add link JS index --}}
-    <script src="{{ asset('assets/dist/index.js') }}"></script>
-
-    {{-- Add js custom --}}
-    <script>
-        // Page loaded
-        $(document).ready(function() {
-
-        });
-    </script>
+    {{-- Add Link jquery from public/assets/library/jquery/dist/jquery.min.js --}}
+    <script src="{{ asset('assets/library/jquery/dist/jquery.min.js') }}"></script>
+    {{-- Add Link jquery validate from public/assets/library/jquery-validation/dist/jquery.validate.min.js --}}
+    <script src="{{ asset('assets/library/jquery-validation/dist/jquery.validate.min.js') }}"></script>
 </body>
 
 </html>
